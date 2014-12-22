@@ -10,4 +10,78 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
+if [[ -s "${ZDOTDIR:-$HOME}/.aliases" ]]; then
+  source "${ZDOTDIR:-$HOME}/.aliases"
+fi
+
+if [[ -s "${ZDOTDIR:-$HOME}/.netflix.sh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.netflix.sh"
+fi
+
 # Customize to your needs...
+
+export EDITOR="vim"
+export GROOVY_HOME=/usr/local/opt/groovy/libexec
+export JAVA8_HOME=`/usr/libexec/java_home -v 1.8`
+export JAVA_HOME=$JAVA8_HOME
+export SCALA_HOME=/usr/local/src/scala-2.9.0.1
+export GOROOT=/usr/local/Cellar/go/$(ls -t1 /usr/local/Cellar/go | head -n1)/libexec
+export GOPATH=/usr/local/src/go
+export GOBIN=~/bin
+export NPM_HOME=~/node_modules
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules:/usr/local/share/npm/lib/node_modules
+export ATLASSIAN_HOME=~/src/atlassian-plugin-sdk-3.11
+export JREBEL_HOME=/usr/local/src/jrebel/
+export MAVEN_OPTS="-Xms64m -Xmx1024m -XX:MaxPermSize=512M"
+export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
+export MESOS_NATIVE_LIBRARY='/usr/local/lib/libmesos.dylib'
+
+export PATH=~/.rvm/bin:~/node_modules/.bin:~/bin:~/Development/stash/NEBULA/wrapper:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin
+export PATH=/usr/local/share/npm/bin:$SCALA_HOME/bin:$NPM_HOME/.bin:~/bin:$ATLASSIAN_HOME/bin/:/usr/local/heroku/bin:/usr/local/opt/ruby/bin/:$PATH
+export PATH=$GOPATH/bin:$PATH
+export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+
+export FIGNORE=.svn
+export BUILD_ENV_SET="false"
+export MANPATH="/usr/local/man:${MANPATH}"
+export WORKON_HOME=~/Development/python/
+
+export AWS_IAM_HOME="/usr/local/opt/aws-iam-tools/libexec"
+export AWS_CREDENTIAL_FILE=$HOME/.aws-credentials-master
+
+alias mon="~/src/mongodb-osx-x86_64-2.0.2/bin/mongo itsyDB_production"
+alias ducks="du -k | sort -n | tail -25"
+alias du1="du -hs */"
+alias ls="ls -FG --color=auto"
+alias zshconfig="subl ~/.zshrc"
+alias mci="mvn clean install"
+alias mcint="mvn clean install -DskipTests"
+alias mcc="mvn cobertura:cobertura"
+alias mct="mvn clean test"
+alias sshc="ssh -p 5822 dev@localhost"
+alias catt="cat target/surefire-reports/*.txt | less"
+alias ssh="TERM=vt100 ssh"
+alias man='_() { echo $1; man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1 1>/dev/null 2>&1;  if [ "$?" -eq 0 ]; then man -M $(brew --prefix)/opt/coreutils/libexec/gnuman $1; else man $1; fi }; _'
+alias git="hub"
+
+autoload up-line-or-beginning-search
+autoload down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "${key[Up]}"      ]] && bindkey  "${key[Up]}"      history-beginning-search-backward
+[[ -n "${key[Down]}"    ]] && bindkey  "${key[Down]}"    history-beginning-search-forward
+[[ -n "$TMUX" ]] && export TERM=screen-256color
+[[ -s ~/.gvm/bin/gvm-init.sh ]] && source ~/.gvm/bin/gvm-init.sh
+[[ -s ~/.rvm/scripts/rvm ]] && source ~/.rvm/scripts/rvm
+[[ -s ~/.ec2/config ]] && source ~/.ec2/config
+[[ -s /usr/local/Caskroom/google-cloud-sdk ]] && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+[[ -s /usr/local/Caskroom/google-cloud-sdk ]] && source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
+	export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
+  alias subl="reattach-to-user-namespace subl"
+fi
+
+launchctl setenv GOROOT $GOROOT
+launchctl setenv GOPATH $GOPATH
