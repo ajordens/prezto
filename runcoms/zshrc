@@ -16,17 +16,13 @@ export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export JAVA8_HOME=`/usr/libexec/java_home -v 1.8`
 export JAVA_HOME=$JAVA8_HOME
 export GOROOT=/usr/local/Cellar/go/$(ls -t1 /usr/local/Cellar/go | head -n1)/libexec
-export GOPATH=/usr/local/src/go
-export GOBIN=~/bin
 export NPM_HOME=~/node_modules
 export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules:/usr/local/share/npm/lib/node_modules
 export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
-export MESOS_NATIVE_LIBRARY='/usr/local/lib/libmesos.dylib'
 
 export PATH=~/.rvm/bin:~/node_modules/.bin:~/bin:~/Development/stash/NEBULA/wrapper:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/X11/bin
-export PATH=/usr/local/share/npm/bin:$SCALA_HOME/bin:$NPM_HOME/.bin:~/bin:$ATLASSIAN_HOME/bin/:/usr/local/heroku/bin:/usr/local/opt/ruby/bin/:$PATH
-export PATH=$GOPATH/bin:$PATH
-export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+export PATH=/usr/local/share/npm/bin:$NPM_HOME/.bin:~/bin:/usr/local/heroku/bin:$PATH
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 
 export FIGNORE=.svn
 export BUILD_ENV_SET="false"
