@@ -58,3 +58,11 @@ if [ "$TERM" = "screen-256color" ] && [ -n "$TMUX" ]; then
 	export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:"
   alias subl="reattach-to-user-namespace subl"
 fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/ajordens/.sdkman"
+[[ -s "/Users/ajordens/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/ajordens/.sdkman/bin/sdkman-init.sh"
